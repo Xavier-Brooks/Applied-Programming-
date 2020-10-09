@@ -1,0 +1,43 @@
+1. minimum requirement for root finding using bisection
+ 
+2.the sign of the two bracket endpoints are opposite
+
+3. The root found will never be zero but a potentially small 
+number thats close to zero
+
+4. Given two guesses calculate the midpoint and
+pass into the function. based on the result readjust the
+endpoints to close in on the root until 
+endpoints have negative signs.
+
+5. if the upper half of the interval bracket a
+root then the midpoint becomes the lower endpoint
+otherwise set it as the upper endpoint
+
+6. The secant and newton methods are open methods that take an initial 
+guess and will iteratively change the guess as it gets closer to the 
+actual solution. 
+
+7. The escape hatch is necessary so that the methods don't enter 
+an infinite loop of trying to find the solution without stopping
+and finding one.
+
+8.The newton method requires the calculation of the derivative(slope) 
+of the function when updating the guess.While the secant method only 
+uses an approximation of the slope. 
+
+9. 
+newton
+   Xnew = Xcurr - [f(Xcurr)/f'(Xcurr)]
+secant 
+   Xnew = Xcurr - f(Xcurr)[ (Xcurr - Xold) / (f(Xcurr) - f(Xold)) ] 
+
+10.The second guess in the second method doesn't bracket the root
+like that of the bisection method. 
+
+11.fabs() returns the absolute of a double whereas abs() returns that 
+of a integer
+
+12.
+
+ 

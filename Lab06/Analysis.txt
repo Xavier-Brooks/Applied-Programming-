@@ -1,0 +1,7 @@
+for question 5 in the macros exercise the "#if TEST==1" is used to 
+to differentiate between which version of the main function in the lab_b.c 
+is to be compiled in the gcc command when setting the "-DTEST=" flag to 
+a number. When set to 1 gcc will compile the first definition of the 
+main function in the lab_b.c file and not the others.
+
+

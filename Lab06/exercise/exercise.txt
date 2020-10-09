@@ -1,0 +1,220 @@
+Exercises 
+  Macros 
+
+Looping variable 'i3'
+0
+1
+2
+Looping variable 'ii'
+0
+1
+
+int charCount(char *str);
+void f2();
+int main(int argc, char *argv[]) {
+   int i = 2;
+   { int i3; printf("Looping variable 'i%s'\n", "3"); for(i3=0; i3 < 3; i3++) { printf("%d\n",i3); } };
+   { int ii; printf("Looping variable 'i%s'\n", "i"); for(ii=0; ii < i; ii++) { printf("%d\n",ii); } };
+   return(0);
+}
+void f2() {
+   int var1 = 5;
+   printf("var1 in f2: %d\n", var1);
+}
+int charCount(char *str) {
+   if ((*str) == '\0') {return 0;}
+   return charCount(str + 1) + (1);
+}
+
+4. The macros is treated as text. The line of code in main 
+where it was called is replaced as code with the text definition
+
+5.in Analysis.txt as instructed.
+
+6. The error is that the MACRO "var" variable being passed should be "_var" instead 
+
+7. Below shows that the MACRO text replaces the macro call in main as code hence 
+the "var" in printf not being "_var" as it should be in the f1()  MACRO.
+
+int charCount(char *str);
+void f2();
+int main(int argc, char *argv[]) {
+   {int _var = 10; printf("var in f1: %d\n", var);};
+   return(0);
+}
+void f2() {
+   int var1 = 5;
+   printf("var1 in f2: %d\n", var1);
+}
+int charCount(char *str) {
+   if ((*str) == '\0') {return 0;}
+   return charCount(str + 1) + (1);
+}
+
+9. below is after the var fix and rerunning the lab_b2 code
+var in f1: 10
+
+10 -DTEST3 compilation
+MULTIPLY: 30
+
+11.the result isn't 50 since 5 is being added to the result of the 
+Multiply macro after passing 5 to, i.e 5*5 + 5. below is the expansion 
+for proof.
+
+int charCount(char *str);
+void f2();
+int main(int argc, char *argv[]) {
+   int n = 5;
+   int m = (n + 5 * 5);
+   printf("MULTIPLY: %d\n", m);
+}
+void f2() {
+   int var1 = 5;
+   printf("var1 in f2: %d\n", var1);
+}
+int charCount(char *str) {
+   if ((*str) == '\0') {return 0;}
+   return charCount(str + 1) + (1);
+}
+
+12. The output of the compiled code is not what I expected see below
+I don't understand how x becomes -3 when it should be -4.
+RESULT: 4
+X IS: -3
+
+
+int charCount(char *str);
+void f2();
+int main(int argc, char *argv[]) {
+   int x = -5;
+   int result = ((x++) < 0 ? -(x++) : (x++));
+   printf("RESULT: %d\n", result);
+   printf("X IS: %d\n", x);
+   return(0);
+}
+void f2() {
+   int var1 = 5;
+   printf("var1 in f2: %d\n", var1);
+}
+int charCount(char *str) {
+   if ((*str) == '\0') {return 0;}
+   return charCount(str + 1) + (1);
+}
+
+14-15. the call for charCount appears to happen twice before the main function exits. 
+however it's really running once and the return value is how many char indexes it takes 
+for two strings to become different. 
+Minimum char count of(Hi, Hello): 2
+
+16. The macro expansion
+
+int charCount(char *str);
+void f2();
+int main(int argc, char *argv[]) {
+   char *str1 = "Hi", *str2 = "Hello";
+   int minCharCount = ((charCount(str1)) < (charCount(str2)) ? (charCount(str1)) : (charCount(str2)));
+   printf("Minimum char count of(%s, %s): %d\n", str1, str2, minCharCount);
+   return(0);
+}
+void f2() {
+   int var1 = 5;
+   printf("var1 in f2: %d\n", var1);
+}
+int charCount(char *str) {
+   if ((*str) == '\0') {return 0;}
+   return charCount(str + 1) + (1);
+}
+
+ 2-D 
+
+2. from the code that I looked over and reads there was no execution error 
+however the memory allocated earlier in main was never free'd.
+
+3. running valgrind confirmed indeed that there were lack of calls to free 
+for the allocated memory. Below is the valgrind output confirming this.
+
+==173== Memcheck, a memory error detector
+==173== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==173== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==173== Command: ./lab_c
+==173== 
+The 3x5 2D dynamic matrix
+ 0.0	 0.1	 0.2	 0.3	 0.4	
+ 1.0	 1.1	 1.2	 1.3	 1.4	
+ 2.0	 2.1	 2.2	 2.3	 2.4	
+==173== 
+==173== HEAP SUMMARY:
+==173==     in use at exit: 144 bytes in 4 blocks
+==173==   total heap usage: 5 allocs, 1 frees, 4,240 bytes allocated
+==173== 
+==173== 144 (24 direct, 120 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==173==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==173==    by 0x1091C3: main (lab_c.c:23)
+==173== 
+==173== LEAK SUMMARY:
+==173==    definitely lost: 24 bytes in 1 blocks
+==173==    indirectly lost: 120 bytes in 3 blocks
+==173==      possibly lost: 0 bytes in 0 blocks
+==173==    still reachable: 0 bytes in 0 blocks
+==173==         suppressed: 0 bytes in 0 blocks
+==173== 
+==173== For lists of detected and suppressed errors, rerun with: -s
+==173== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+4-5. calling a simple free on the double pointer A. yeilds the following 
+valgrind results. The reason is because we're freeing the pointer to the
+individual rows but not the actual data themselves hence why less memory
+is in use at exit.
+
+
+==185== Memcheck, a memory error detector
+==185== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==185== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==185== Command: ./lab_c
+==185== 
+The 3x5 2D dynamic matrix
+ 0.0	 0.1	 0.2	 0.3	 0.4	
+ 1.0	 1.1	 1.2	 1.3	 1.4	
+ 2.0	 2.1	 2.2	 2.3	 2.4	
+==185== 
+==185== HEAP SUMMARY:
+==185==     in use at exit: 120 bytes in 3 blocks
+==185==   total heap usage: 5 allocs, 2 frees, 4,240 bytes allocated
+==185== 
+==185== 120 bytes in 3 blocks are definitely lost in loss record 1 of 1
+==185==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==185==    by 0x109217: main (lab_c.c:27)
+==185== 
+==185== LEAK SUMMARY:
+==185==    definitely lost: 120 bytes in 3 blocks
+==185==    indirectly lost: 0 bytes in 0 blocks
+==185==      possibly lost: 0 bytes in 0 blocks
+==185==    still reachable: 0 bytes in 0 blocks
+==185==         suppressed: 0 bytes in 0 blocks
+==185== 
+==185== For lists of detected and suppressed errors, rerun with: -s
+==185== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+6-8. Below is the result of writing a function that frees the data and rows properly, and running valgrind,
+resulting in no memory use at exit. since A is a double pointer we need to clear all the data(column doubles) 
+A points to in addition to A that points to each of the rows. 
+
+==200== Memcheck, a memory error detector
+==200== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==200== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==200== Command: ./lab_c
+==200== 
+The 3x5 2D dynamic matrix
+ 0.0	 0.1	 0.2	 0.3	 0.4	
+ 1.0	 1.1	 1.2	 1.3	 1.4	
+ 2.0	 2.1	 2.2	 2.3	 2.4	
+==200== 
+==200== HEAP SUMMARY:
+==200==     in use at exit: 0 bytes in 0 blocks
+==200==   total heap usage: 5 allocs, 5 frees, 4,240 bytes allocated
+==200== 
+==200== All heap blocks were freed -- no leaks are possible
+==200== 
+==200== For lists of detected and suppressed errors, rerun with: -s
+==200== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
