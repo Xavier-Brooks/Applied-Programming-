@@ -1,0 +1,12 @@
+The list has 1 elements
+From the front:
+Node 0 has value 'First Line'
+
+From the back:
+Node 0 has value 'First Line'
+
+Removing one element from the front
+Nothing left in the list, no front
+Removed value is: First Line 
+
+Destroying the linked list

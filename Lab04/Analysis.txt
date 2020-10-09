@@ -1,0 +1,23 @@
+Xavier Brooks 
+9/25/20
+
+The task of this exercise was to use my knowledge of
+pointers and implement a functions in LinkedList.c 
+that adds nodes to a pre-existing list, remove nodes 
+and initialze new lists. Overall I was unsuccessful in
+completing the lab. The output for teh simpleTest bin
+is almost close to the expected output from my understanding
+however a solutions.txt file was never provided so I'm 
+going based on my understanding of the simpleTest code.
+
+Based on my output in out.txt I believe that my nodes are 
+being added to the LinkedList correctly, however my removal 
+of the front nodes isn't being handled correctly hence why 
+the output in out.txt is wrong.
+
+when I ran the mem binary I belive that the error was located 
+in the remove front node function when I assign the "Previous"
+pointer of the new front node to NULL. I missed office hours due
+and exam unfortunately. In addition my understanding is that the 
+nodes are being handled differently from the Semerar's book thus 
+I was getting a little confused on that.

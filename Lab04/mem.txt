@@ -1,0 +1,165 @@
+==700== Memcheck, a memory error detector
+==700== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==700== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==700== Command: ./simpleTest 0
+==700== 
+==700== Invalid read of size 1
+==700==    at 0x48435D9: __strcpy_chk (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==700==    by 0x109580: strcpy (string_fortified.h:90)
+==700==    by 0x109580: RemoveFromFrontOfLinkedList (LinkedLists.c:114)
+==700==    by 0x10943A: main (simpleTest.c:81)
+==700==  Address 0x10 is not stack'd, malloc'd or (recently) free'd
+==700== 
+==700== 
+==700== Process terminating with default action of signal 11 (SIGSEGV)
+==700==  Access not within mapped region at address 0x10
+==700==    at 0x48435D9: __strcpy_chk (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==700==    by 0x109580: strcpy (string_fortified.h:90)
+==700==    by 0x109580: RemoveFromFrontOfLinkedList (LinkedLists.c:114)
+==700==    by 0x10943A: main (simpleTest.c:81)
+==700==  If you believe this happened as a result of a stack
+==700==  overflow in your program's main thread (unlikely but
+==700==  possible), you can try to increase the size of the
+==700==  main thread stack using the --main-stacksize= flag.
+==700==  The main thread stack size used in this run was 8388608.
+The list has 0 elements
+From the front:
+
+From the back:
+
+Removing one element from the front
+==700== 
+==700== HEAP SUMMARY:
+==700==     in use at exit: 256 bytes in 1 blocks
+==700==   total heap usage: 2 allocs, 1 frees, 4,352 bytes allocated
+==700== 
+==700== LEAK SUMMARY:
+==700==    definitely lost: 0 bytes in 0 blocks
+==700==    indirectly lost: 0 bytes in 0 blocks
+==700==      possibly lost: 0 bytes in 0 blocks
+==700==    still reachable: 256 bytes in 1 blocks
+==700==         suppressed: 0 bytes in 0 blocks
+==700== Reachable blocks (those to which a pointer was found) are not shown.
+==700== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==700== 
+==700== For lists of detected and suppressed errors, rerun with: -s
+==700== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==701== Memcheck, a memory error detector
+==701== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==701== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==701== Command: ./simpleTest 1
+==701== 
+The list has 1 elements
+From the front:
+Node 0 has value 'First Line'
+
+From the back:
+Node 0 has value 'First Line'
+
+Removing one element from the front
+Nothing left in the list, no front
+Removed value is: First Line 
+
+Destroying the linked list
+==701== 
+==701== HEAP SUMMARY:
+==701==     in use at exit: 0 bytes in 0 blocks
+==701==   total heap usage: 3 allocs, 3 frees, 4,624 bytes allocated
+==701== 
+==701== All heap blocks were freed -- no leaks are possible
+==701== 
+==701== For lists of detected and suppressed errors, rerun with: -s
+==701== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==702== Memcheck, a memory error detector
+==702== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==702== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==702== Command: ./simpleTest 2
+==702== 
+The list has 2 elements
+From the front:
+Node 0 has value 'First Line'
+Node 1 has value 'Second Line'
+
+From the back:
+Node 0 has value 'Second Line'
+Node 1 has value 'First Line'
+
+Removing one element from the front
+
+Remove from front of list, new front is: 'Second Line' 
+Removed value is: First Line 
+
+Destroying the linked list
+==702== 
+==702== HEAP SUMMARY:
+==702==     in use at exit: 0 bytes in 0 blocks
+==702==   total heap usage: 5 allocs, 5 frees, 5,152 bytes allocated
+==702== 
+==702== All heap blocks were freed -- no leaks are possible
+==702== 
+==702== For lists of detected and suppressed errors, rerun with: -s
+==702== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==703== Memcheck, a memory error detector
+==703== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==703== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==703== Command: ./simpleTest 3
+==703== 
+The list has 3 elements
+From the front:
+Node 0 has value 'First Line'
+Node 1 has value 'Second Line'
+Node 2 has value 'Third Line'
+
+From the back:
+Node 0 has value 'Third Line'
+Node 1 has value 'Second Line'
+Node 2 has value 'First Line'
+
+Removing one element from the front
+
+Remove from front of list, new front is: 'Second Line' 
+Removed value is: First Line 
+
+Destroying the linked list
+==703== 
+==703== HEAP SUMMARY:
+==703==     in use at exit: 0 bytes in 0 blocks
+==703==   total heap usage: 7 allocs, 7 frees, 5,680 bytes allocated
+==703== 
+==703== All heap blocks were freed -- no leaks are possible
+==703== 
+==703== For lists of detected and suppressed errors, rerun with: -s
+==703== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==704== Memcheck, a memory error detector
+==704== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==704== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==704== Command: ./simpleTest 4
+==704== 
+The list has 4 elements
+From the front:
+Node 0 has value 'First Line'
+Node 1 has value 'Second Line'
+Node 2 has value 'Third Line'
+Node 3 has value 'Fourth Line'
+
+From the back:
+Node 0 has value 'Fourth Line'
+Node 1 has value 'Third Line'
+Node 2 has value 'Second Line'
+Node 3 has value 'First Line'
+
+Removing one element from the front
+
+Remove from front of list, new front is: 'Second Line' 
+Removed value is: First Line 
+
+Destroying the linked list
+==704== 
+==704== HEAP SUMMARY:
+==704==     in use at exit: 0 bytes in 0 blocks
+==704==   total heap usage: 9 allocs, 9 frees, 6,208 bytes allocated
+==704== 
+==704== All heap blocks were freed -- no leaks are possible
+==704== 
+==704== For lists of detected and suppressed errors, rerun with: -s
+==704== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
