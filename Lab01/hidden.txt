@@ -1,0 +1,38 @@
+total 60
+drwx------ 24 xmb5563 domain users 4096 Aug 13 17:31 .
+drwxr-xr-x 10 root    root            0 Aug 13 17:28 ..
+-rw-------  1 xmb5563 student       131 Aug 13 17:18 .bash_history
+-rw-r--r--  1 xmb5563 domain users   18 Aug 29  2017 .bash_logout
+-rw-r--r--  1 xmb5563 domain users  176 Aug 29  2017 .bash_profile
+-rw-r--r--  1 xmb5563 domain users  215 Jul 26 14:38 .bashrc
+drwx------ 19 xmb5563 student      4096 Feb 19  2019 .cache
+drwxr-xr-x 17 xmb5563 student      4096 Nov 17  2019 .config
+drwx------  3 xmb5563 student        33 Feb 19  2019 .dbus
+drwxr-x---  2 xmb5563 student         6 Feb 19  2019 Desktop
+drwxr-x---  4 xmb5563 student        44 Aug 13 17:22 Documents
+drwxr-x---  2 xmb5563 student         6 Sep 13  2019 Downloads
+-rw-------  1 xmb5563 student        16 Feb 19  2019 .esd_auth
+-rw-r--r--  1 root    root           82 Oct  3  2017 .foldersize.txt.epoch
+-rw-rw----  1 xmb5563 student        54 Jul 26 14:48 .gitconfig
+drwx------  2 xmb5563 student        79 Feb 19  2019 .gnupg
+drwx------  2 xmb5563 student         6 Feb 19  2019 .gvfs
+-rw-rw----  1 xmb5563 student         0 Aug 13 17:31 hidden.txt
+-rw-------  1 xmb5563 student       624 Feb 19  2019 .ICEauthority
+drwxr-xr-x  3 xmb5563 student        27 Feb 19  2019 .java
+drwx------  3 xmb5563 student        27 Feb 19  2019 .local
+drwxrwx---  3 xmb5563 student        20 Jul 26 14:24 .matlab
+drwx------  5 xmb5563 student        82 Feb 19  2019 .mozilla
+drwxr-x---  2 xmb5563 student         6 Feb 19  2019 Music
+drwxr-xr-x  2 xmb5563 student        86 Jul 26 14:24 .oracle_jre_usage
+drwxr-x---  2 xmb5563 student        61 Feb 19  2019 Pictures
+drwxr-----  3 xmb5563 student        27 Feb 19  2019 .pki
+drwxr-x---  2 xmb5563 student         6 Feb 19  2019 Public
+drwx------  2 xmb5563 student         6 Feb 19  2019 .ssh
+drwxrwx---  3 xmb5563 student        85 Aug 13 17:28 .subversion
+drwxr-x---  2 xmb5563 student         6 Feb 19  2019 Templates
+drwxr-x---  2 xmb5563 student         6 Feb 19  2019 Videos
+-rw-------  1 xmb5563 student       828 Dec  6  2019 .viminfo
+-rw-r--r--  1 xmb5563 student       464 Feb 19  2019 vivado.jou
+-rw-r--r--  1 xmb5563 student       537 Feb 19  2019 vivado.log
+-rw-------  1 xmb5563 student       171 Aug 13 17:22 .Xauthority
+drwxr-xr-x  3 xmb5563 student        28 Feb 19  2019 .Xilinx

@@ -1,0 +1,16 @@
+Exercises 
+
+	example 1
+
+1.within the lab_b file memory is allocated using the p pointer. In addition to not being checked to make sure that it isn't null after malloc is called, memory from allocation 1 and 3 were never freed. 
+2.As predicted in question 1 1071 blocks were allocated in memory. Of that 16 bytes were lost in block 1 of 2, and 19 in block 2 of 2
+3.after adding the free and assigning NULL to p, o blocks were used and 4143 bytes were allocated, no memory lost.
+
+	example 2 
+1. the values at index 98 and 99 of the array are 84 and 96 respectively, they're not zero since we used malloc instead of calloc   
+   in addition the arr pointer was never freed or assigned NULL at the end of the program. inaddition the i starts at 1 and it needs to start at 0 for indexing.
+
+2. 400 bytes in memory was lost in 1 block out of the 1424 bytes allocated in the program, I freed the arr pointer and
+   assigned it a NULL value before the program terminated.
+
+3. after fixing the code 4496 bytes of code were allocated 0 blocks were lost and 0 bytes were lost.

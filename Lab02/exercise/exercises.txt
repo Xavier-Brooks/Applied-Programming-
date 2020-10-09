@@ -1,0 +1,38 @@
+Interactive exercises
+
+	using strings and Data structures 
+
+
+short int              value: 1,  Size: 2 bytes
+unsigned short int     value: 2,  Size: 2 bytes
+unsigned int           value: 3,  Size: 4 bytes
+int                    value: 4,  Size: 4 bytes
+long int               value: 5,  Size: 8 bytes
+unsigned long int      value: 6,  Size: 8 bytes
+long long int          value: 7,  Size: 8 bytes
+unsigned long long int value: 8,  Size: 8 bytes
+signed char            value: 8,  Size: 1 bytes
+unsigned char          value: 9,  Size: 1 bytes
+float                  value: 11.000000,  Size: 4 bytes
+double                 value: 12.000000,  Size: 8 bytes
+long double            value: 13.000000,  Size: 16 bytes
+Different data '123.456789'  '123.457'  ' 123.4568'
+
+Question 1. 
+	When I print the integer within the union the print statement accesses the final member of the union that was entered. If I  print the integer value immediately after assigning it the correct integer will display.
+
+Question 2.
+	The reason the number are printing correctly with the user defined struct is that each of the variables are being held in seperate memory locations thus corruption isn't occuring like that of the union.
+
+Question 3. 
+	the size of the anumber2 struct is bigger since both of the variables in the structure are stored at seperate memory addresses, whereas the anumber1 union stores everything at one memory address the size of the largest variable, a float, thus the size of the union is only 4 bytes.
+ 
+
+	Memory management
+
+Question 1 from part 3. 
+	The reason I chose 25-1 for n in strncpy is that the string, "CMPE380 lab malloc try 1." is 24 characters long however that doesn't include the null byte that terminates the string which strncpy handles at the end of copying.
+
+Question 2. 
+	similar to question 1 we use the realloc() function to expand the size of the string held by the text_p pointer. By taking the number thus the same byte range from the realloc function wqas used in the strncpy function to append
+	to the original string.   

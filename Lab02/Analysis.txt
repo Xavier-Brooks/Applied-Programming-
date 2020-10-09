@@ -1,0 +1,13 @@
+Xavier Brooks 
+9/11/20
+
+For this lab I was required to edit the DynamicArrays c file, which contained functions definitions I was 
+tasked with editing. The intent was to write code that allocated memory towards a strcture that held 
+multiple instances of string data in an array, keeping track of the amount of data in the arrays, 
+and also de-allocating the arrays from memory. After handling the allocation and reallocation 
+I made sure to write check statements for the return value of malloc, and realloc whenever I 
+called them in createDArray and PassToArray. The only problems I came across during the assignment 
+was the build script not successfully running but after redownloading the header file I believe that 
+it's safe to assume I had an older version of the header and error code files since the build script 
+ran afterwards. In addition I do recall an email being sent out during the week about a script error. 
+Otherwise I believe that the code is close to working if not done correctly.   

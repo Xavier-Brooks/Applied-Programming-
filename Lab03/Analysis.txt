@@ -1,0 +1,32 @@
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Xavier Brooks
+9/18/2020
+Lab 3 
+
+Objective:
+	The purpose of this exercise was to take the code for the DynamicArray
+program written in the previous exercise and remove memory leaks that may have 
+occurred. This is done by running prewritten build and testing scripts. In
+addition code was written that added get_opt_long functionality to the dynamic
+array testing program that makes debuggig our software easier.
+
+Firstly, the build1 script was used to build our Dynamic Array c file together 
+in addition with the simpleTest.c file. to  create the simpleTest executable 
+that produced the same output as that of lab2 as expected. The mem1 script was
+ran afterwards which utilized Valgrind to check for memory leaks and output
+the results into the mem.txt file. In this file you will see that memory was 
+successfully managed and no leaks had occurred. The main problem I faced with
+this part of the lab was that my DynamicArray source code wasn't fully 
+finished from the previos exercise. but with help from TAs at office hours i 
+was able to finish.
+
+The second half of the lab required the addition of command line arguments to
+my previously written DynamicArray code. the mem2 script was ran, which 
+utilizes valgrind as a means of checking for memory leaks and wrote output
+to mem.txt. In addition, the test2 script was ran which automated the process 
+of passing command line arguments to TestDarray, a wrapper file for my 
+DynamicArray code. this script wrote output to out.txt which was to b compared
+solutions.txt. THough the output wasn't exact they were extremely close 
+implying a simple formatting bug in my TestDarray code. The only problem I had
+with this portion of the lab was that I forgot to update capacity in teh DArray 
+when it became full once fixed the program worked.    

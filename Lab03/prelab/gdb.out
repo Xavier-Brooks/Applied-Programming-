@@ -1,0 +1,25 @@
+Breakpoint 1 at 0x11a9: file lab_a.c, line 8.
+Starting program: /home/c4po/Documents/Applied/Lab03/prelab/lab_a 
+
+Breakpoint 1, main (argc=21845, argv=0x0) at lab_a.c:8
+8	int main(int argc, char *argv[]) {
+10	   int age = 22;
+11	   int height = 6;
+12	   printf("I am %d years old.\n", age);
+13	   printf("I am %d inches tall.\n\n", height);
+17	   text_p = calloc( 12, sizeof(char) );
+18	   if(NULL == text_p) {
+23	   strncpy( text_p, "This string is way to long and will corrupt memory", 52-1);
+$1 = 0x5555555596b0 ""
+24	   printf("The string contains '%s'\n", text_p);
+$2 = 0x5555555596b0 "This string is way to long and will corrupt memory"
+Breakpoint 2 at 0x5555555552a9: file lab_a.c, line 26.
+Continuing.
+
+Breakpoint 2, main (argc=1, argv=0x7fffffffe278) at lab_a.c:26
+26	   free(text_p);
+27	   text_p = NULL;       // always do this
+$3 = 0x5555555596b0 ""
+28	   return 0;
+Continuing.
+[Inferior 1 (process 482) exited normally]

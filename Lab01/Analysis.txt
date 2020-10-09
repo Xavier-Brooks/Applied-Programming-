@@ -1,0 +1,60 @@
+total 204
+drwxrwx--- 3 xmb5563 student    163 Aug 13 17:43 .
+drwxr-x--- 4 xmb5563 student     44 Aug 13 17:22 ..
+-rw-rw---- 1 xmb5563 student      0 Aug 13 17:51 Analysis.txt
+-rw-r----- 1 xmb5563 student    214 Aug 13 17:33 bashrc.txt
+-rw-rw---- 1 xmb5563 student    117 Aug 13 17:26 Brooks_myinfo.txt
+drwxrwx--- 8 xmb5563 student    245 Aug 13 17:50 .git
+-rw-rw---- 1 xmb5563 student   2314 Aug 13 17:31 hidden.txt
+-rw-r--r-- 1 xmb5563 student 191680 Aug 13 17:29 screen.png
+-rw-rw---- 1 xmb5563 student     18 Aug 13 17:40 test.c
+
+1. Added the test.c file to my hw01 directory
+
+total 208
+drwxrwx--- 3 xmb5563 student    163 Aug 13 17:43 .
+drwxr-x--- 4 xmb5563 student     44 Aug 13 17:22 ..
+-rw-rw---- 1 xmb5563 student    579 Aug 13 17:52 Analysis.txt
+-rw-r----- 1 xmb5563 student    214 Aug 13 17:33 bashrc.txt
+-rw-rw---- 1 xmb5563 student    117 Aug 13 17:26 Brooks_myinfo.txt
+drwxrwx--- 8 xmb5563 student    245 Aug 13 17:50 .git
+-rw-rw---- 1 xmb5563 student   2314 Aug 13 17:31 hidden.txt
+-rw-r--r-- 1 xmb5563 student 191680 Aug 13 17:29 screen.png
+-rw-rw---- 1 xmb5563 student     18 Aug 13 17:40 test.c
+2. This is after adding my full name to test.c and committing to git, nothing was created in the directory so no difference
+
+total 204
+drwxrwx--- 3 xmb5563 student    145 Aug 13 17:59 .
+drwxr-x--- 4 xmb5563 student     44 Aug 13 17:22 ..
+-rw-rw---- 1 xmb5563 student   1236 Aug 13 17:57 Analysis.txt
+-rw-r----- 1 xmb5563 student    214 Aug 13 17:33 bashrc.txt
+-rw-rw---- 1 xmb5563 student    117 Aug 13 17:26 Brooks_myinfo.txt
+drwxrwx--- 8 xmb5563 student    245 Aug 13 17:58 .git
+-rw-rw---- 1 xmb5563 student   2314 Aug 13 17:31 hidden.txt
+-rw-r--r-- 1 xmb5563 student 191680 Aug 13 17:29 screen.png
+3. After adding a comment with my major to test.c it appears I deleted it oh no.  
+
+total 208
+drwxrwx--- 3 xmb5563 student    163 Aug 13 18:02 .
+drwxr-x--- 4 xmb5563 student     44 Aug 13 17:22 ..
+-rw-rw---- 1 xmb5563 student   1796 Aug 13 18:02 Analysis.txt
+-rw-r----- 1 xmb5563 student    214 Aug 13 17:33 bashrc.txt
+-rw-rw---- 1 xmb5563 student    117 Aug 13 17:26 Brooks_myinfo.txt
+drwxrwx--- 8 xmb5563 student    245 Aug 13 18:02 .git
+-rw-rw---- 1 xmb5563 student   2314 Aug 13 17:31 hidden.txt
+-rw-r--r-- 1 xmb5563 student 191680 Aug 13 17:29 screen.png
+-rw-rw---- 1 xmb5563 student     40 Aug 13 18:02 test.c
+4. good thing i comitted to git, i checked out the file and safely restored it 
+
+commit 1685a56659fc55da8b7da95ea8a6706a5d9a5017
+Author: xmb5563 <xmb5563@rit.edu>
+Date:   Thu Aug 13 17:58:20 2020 -0400
+
+    added my major in a seperate comment
+
+commit 7f6e206c616e0211a033471df0a476a81b4425fc
+Author: Xavier Brooks <xmb5563@rit.edu>
+Date:   Thu Aug 13 17:50:33 2020 -0400
+
+    first c file with full name in comments
+5. proof that I made the commits and changes to test.c, a log of all my commits
