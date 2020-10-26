@@ -1,0 +1,29 @@
+Exercise 
+
+step 8 
+
+time ./lab_a 
+Elapsed CPU Time (mainTimer) = 0.426108 sec.
+Elapsed CPU Time per Iteration (mainTimer, 1000) =  4.20e-04 sec.
+
+real   0m0.427s
+user   0m0.427s
+sys    0m0.000s
+
+time ./lab_c
+Elapsed CPU Time (mainTimer) = 3.40139 sec.
+Elapsed CPU Time per Iteration (mainTimer, 1000) =  3.40e-03 sec.
+
+real   0m3.403s
+user   0m1.467s
+sys    0m1.936s
+
+from above you can see that the lab_a implementation of the 2d array
+is much faster than the lab_c method. the lab_a model only needed 12% 
+of the lab_c time to finish and overall the time linux binary reports 
+virtually the same times as the macros that were used in the program 
+itself. minor diferences are due to the time binary(linux) keeping track
+of OS code execution as well as time for our lab binaries to actually start.
+memory allocation also affects the time since lab_c allocates memory more.
+
+  

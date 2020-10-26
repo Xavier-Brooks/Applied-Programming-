@@ -1,0 +1,20 @@
+piped the sizes of the hw8c and hw8c_opt1 binaries
+into this ls.txt file to compare the sizes at various
+optimization levels. opt1 is lower than the original 
+binary as it should be.
+
+Optimization Level 1 sizes
+-rwxr-xr-x 1 c4po c4po 27904 Oct 23 12:57 hw8c
+-rwxr-xr-x 1 c4po c4po 27280 Oct 23 15:21 hw8c_opt1
+
+Optimization Level 2 sizes
+-rwxr-xr-x 1 c4po c4po 28376 Oct 23 15:25 hw8c
+-rwxr-xr-x 1 c4po c4po 28144 Oct 23 15:24 hw8c_opt1
+
+optimization Level 3 sizes
+-rwxr-xr-x 1 c4po c4po 32464 Oct 23 15:28 hw8c
+-rwxr-xr-x 1 c4po c4po 31320 Oct 23 15:29 hw8c_opt1
+
+Optimization Level 0 sizes
+-rwxr-xr-x 1 c4po c4po 21752 Oct 23 15:31 hw8c
+-rwxr-xr-x 1 c4po c4po 21640 Oct 23 15:31 hw8c_opt1

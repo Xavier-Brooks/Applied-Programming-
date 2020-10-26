@@ -1,0 +1,27 @@
+size of the hwc8 and hwc8_opt1 binaries 
+at different optimization levels using 
+the linux size program
+
+Optimization Level 0 sizes 
+   text	   data	    bss	    dec	    hex	filename
+   5928	    688	     16	   6632	   19e8	hw8c
+   text	   data	    bss	    dec	    hex	filename
+   5874	    696	     16	   6586	   19ba	hw8c_opt1
+
+Optimization Level 1 sizes
+   text	   data	    bss	    dec	    hex	filename
+   4431	    672	     16	   5119	   13ff	hw8c
+   text	   data	    bss	    dec	    hex	filename
+   4393	    680	     16	   5089	   13e1	hw8c_opt1
+
+Optimization Level 2 sizes 
+   text	   data	    bss	    dec	    hex	filename
+   4487	    672	     16	   5175	   1437	hw8c
+   text	   data	    bss	    dec	    hex	filename
+   4377	    680	     16	   5073	   13d1	hw8c_opt1
+
+Optimization Level 3 sizes
+   text	   data	    bss	    dec	    hex	filename
+   5487	    672	     16	   6175	   181f	hw8c
+   text	   data	    bss	    dec	    hex	filename
+   4929	    680	     16	   5625	   15f9	hw8c_opt1

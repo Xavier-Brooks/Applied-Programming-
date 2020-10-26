@@ -1,0 +1,106 @@
+#compiler and valgrind arguments
+
+PROG = hw8c
+PROG1 = hw8c_opt1
+PROG2 = hw8c_opt2
+PROG3 = hw8c_opt3
+
+#repeat_num: dataTimer repititions repeat_num2: calcTimer repititions
+CC = gcc
+CFLAGS = -g -std=c99 -Wall -pedantic -DMOVE_IO_CLOSE
+EN_TIME = -DEN_TIME -DREPEAT_NUM=100 -DREPEAT_NUM2=200  
+VALGRIND = valgrind --tool=memcheck --leak-check=yes --track-origins=yes
+
+#source files
+SOURCE = hw8c.c 
+SOURCE1 = hw8c_opt1.c 
+SOURCE2 = hw8c_opt2.c 
+SOURCE3 = hw8c_opt3.c
+
+#input files
+DATA = data.txt
+
+#output files
+MEM = mem.txt
+OUT = output.txt
+
+.PHONY: all clean help mem
+
+$(PROG):
+	$(CC) $(CFLAGS) $(SOURCE) -o $(PROG)_mem
+	$(CC) $(CFLAGS) $(EN_TIME) $(SOURCE) -o $(PROG)
+	$(CC) $(CFLAGS) -O0 $(EN_TIME) $(SOURCE) -o $(PROG)_0
+	$(CC) $(CFLAGS) -O2 $(EN_TIME) $(SOURCE) -o $(PROG)_2
+	$(CC) $(CFLAGS) -O3 $(EN_TIME) $(SOURCE) -o $(PROG)_3
+        
+$(PROG1):
+	$(CC) $(CFLAGS) $(SOURCE1) -o $(PROG1)_mem
+	$(CC) $(CFLAGS) $(EN_TIME) $(SOURCE1) -o $(PROG1)
+	$(CC) $(CFLAGS) -O0 $(EN_TIME) $(SOURCE1) -o $(PROG1)_0
+	$(CC) $(CFLAGS) -O2 $(EN_TIME) $(SOURCE1) -o $(PROG1)_2
+	$(CC) $(CFLAGS) -O3 $(EN_TIME) $(SOURCE1) -o $(PROG1)_3
+
+$(PROG2):
+	$(CC) $(CFLAGS) $(SOURCE2) -o $(PROG2)_mem
+	$(CC) $(CFLAGS) $(EN_TIME) $(SOURCE2) -o $(PROG2)
+	$(CC) $(CFLAGS) -O0 $(EN_TIME) $(SOURCE2) -o $(PROG2)_0
+	$(CC) $(CFLAGS) -O2 $(EN_TIME) $(SOURCE2) -o $(PROG2)_2
+	$(CC) $(CFLAGS) -O3 $(EN_TIME) $(SOURCE2) -o $(PROG2)_3	
+
+$(PROG3):
+	$(CC) $(CFLAGS) $(SOURCE3) -o $(PROG3)_mem
+	$(CC) $(CFLAGS) $(EN_TIME) $(SOURCE3) -o $(PROG3)
+	$(CC) $(CFLAGS) -O0 $(EN_TIME) $(SOURCE3) -o $(PROG3)_0
+	$(CC) $(CFLAGS) -O2 $(EN_TIME) $(SOURCE3) -o $(PROG3)_2
+	$(CC) $(CFLAGS) -O3 $(EN_TIME) $(SOURCE3) -o $(PROG3)_3
+
+all: $(PROG) $(PROG1) $(PROG2) $(PROG3)
+
+test:$(PROG) $(PROG1) $(PROG2) $(PROG3)
+	@echo "running hw8c(O0 - O3)" >> $(OUT)
+	@echo "original file being ran" >> $(OUT)
+	./hw8c_0 data.txt >> $(OUT) 2>&1
+	./hw8c data.txt >> $(OUT) 2>&1
+	./hw8c_2 data.txt >> $(OUT) 2>&1
+	./hw8c_3 data.txt >> $(OUT) 2>&1
+
+	@echo "running hw8c_opt1(O0-O3)" >> $(OUT)
+	@echo "running realloc to expand data capacity" >> $(OUT)
+	./hw8c_opt1_0 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt1 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt1_2 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt1_3 $(DATA) >> $(OUT) 2>&1
+
+	@echo "running hw8c_opt2(O0-O3)" >> $(OUT)
+	@echo "running simple loop unrolling" >> $(OUT)
+	./hw8c_opt2_0 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt2  $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt2_2 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt2_3 $(DATA) >> $(OUT) 2>&1
+
+	@echo "running hw8c_opt3(O0-O3)" >> $(OUT)
+	@echo "running complex loop unrolling" >> $(OUT)
+	./hw8c_opt3_0 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt3 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt3_2 $(DATA) >> $(OUT) 2>&1
+	./hw8c_opt3_3 $(DATA) >> $(OUT) 2>&1
+
+mem:$(PROG) $(PROG1) $(PROG2) $(PROG3)
+	@echo "running memory test(timing disabled)"
+	$(VALGRIND) ./$(PROG)_mem $(DATA) >> mem.txt 2>&1
+	$(VALGRIND) ./$(PROG1)_mem $(DATA) >> mem.txt 2>&1
+	$(VALGRIND) ./$(PROG2)_mem $(DATA) >> mem.txt 2>&1
+	$(VALGRIND) ./$(PROG3)_mem $(DATA) >> mem.txt 2>&1
+
+help:
+	@echo "make options: all, clean help, mem, test"
+
+clean:
+	@echo "cleaning the current directory"
+	rm -f $(OUT) $(MEM)
+	rm -f $(PROG) $(PROG1) $(PROG2) $(PROG3)
+	rm -f $(PROG)_0 $(PROG1)_0 $(PROG2)_0 $(PROG3)_0
+	rm -f $(PROG)_2 $(PROG1)_2 $(PROG2)_2 $(PROG3)_2
+	rm -f $(PROG)_3 $(PROG1)_3 $(PROG2)_3 $(PROG3)_3
+	rm -f $(PROG)_mem $(PROG1)_mem $(PROG2)_mem $(PROG3)_mem
+	 

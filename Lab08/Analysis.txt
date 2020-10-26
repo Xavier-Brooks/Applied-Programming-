@@ -1,0 +1,93 @@
+Xavier Brooks
+10/23/20
+
+The purpose of this exercise was to test the performance of a 
+c program by running it through various optiimization compiler 
+commands, making memory allocation more efficient, and by 
+applying the unlooping technique. each c source file executes
+these ideas at multiple optimization levels to help understand
+how performance can be increased in code. 
+
+for this lab the time data reading time and the calculation 
+times were calculated seperately using the timing macros from 
+previous labs
+
+hw8c was copied into three source files and edited accordingly
+
+hw8.c compiles to hw8
+was compiled on various ooptimization levels and both the 
+"ls -l" command and "size" linux program were used to 
+determine how the size for the program changes with optimization
+level 
+
+The sizes were thrown into the ls and size text files and were 
+not to be handled by the makefile. 
+
+hw8c_opt1.c compiles to hw8c_opt1
+The handling of resizing the data array in memory was edited to
+simply perform a realloc on the already existing x and y data array 
+rather than creating two with malloc setting pointers and deallocing 
+old arrays from memory which is more time consuming and memory 
+expensive
+
+hw8c_opt2.c compiles to hw8c_opt2
+the code form the original source file was edited such that it
+used two loop unrollings and exclusively the original temporary 
+variables to increease performance 
+
+hw8c_opt3.c compiles to hw8c_opt3
+Just like hw8c_opt2 this one handles two loop unrollings however
+another set of looping temp varaibles were created. 
+
+A make file was created as specified in to handle all building, 
+testing, cleaning, etc. since these four source are going to be 
+compiled four times it would be easier to handle it this way rather 
+than constantly doing it manually. Unfortunately I couldn't get my 
+test case to work with the file and program variables so I had to 
+fully type them out but other than that the makefile works 
+
+Below are the results for the exercise. Worth noting the times 
+below are per iteration 
+
+			hw8c_0	 	hw8c		hw8c_2  	hw8c_3
+DataTimer		4.68e-2 	4.54e-2 	2.04e-2 	1.59e-2
+CalcTimer		3.18e-5 	3.15e-5 	7.10e-6 	6.74e-6
+ls -la			21752		21744		28376		32464
+text(code size)		5928		5928		4487		5487
+data size		688		688		672		672
+
+  			hw8c_opt1_0	hw8c_opt1	hw8c_opt1_2	hw8c_opt1_3
+DataTimer		2.75e-3         2.22e-3		2.22e-6		2.68e-3
+CalcTimer		3.49e-5		3.15e-5		6.69e-6		6.89e-6
+ls -la			21640		211640		28136		31320
+text(code size)		5874		5874		4377		4929	
+data size		696		696		680		680
+
+			hw8c_opt2_0	hw8c_opt2	hw8c_opt2_2	hw8c_opt2_3
+DataTimer 		4.67e-2		4.75e-5		2.05e-2		1.98e-2	
+CalcTimer		2.85e-5		2.80e-5		6.77e-6		6.74e-6
+ls -la			21896		21888		28528		31320	
+text(code size)		6188		6168		4519		5159
+data size		688		688		672		672
+
+			hw8c_opt3_0	hw8c_opt3	hw8c_opt3_2	hw8c_opt3_3
+DataTimer 		4.52e-2		4.63e-2		1.97e-2		1.59e-2
+CalcTimer		2.72e-5		2.75e-5		5.08e-6		5.24e-6
+ls -la			22024		22016		29024		30672
+text(code size)		6296		6296		4567		5527
+data size		688		688		672		672
+
+Although higher levels of optimization generally help with
+decreasing perfomance time certain calulations such as 
+calctimer for hw8c_opt were actually slowed from O2 to O3.
+
+until one jump from O0 to O1 there is little to no affect on
+program file sizes. once you go into O2 or O3 domain thats where huge 
+jumps in size occur.
+
+Adding the temporary variable does appear to help greatly but 
+with higher levels of optimization. As a result the hw8c_opt3 
+program was considerably faster than the hw8c_opt2 programs.
+
+generally faster programs result from higher optimization levels 
+however at the expanse of smaller file sizes

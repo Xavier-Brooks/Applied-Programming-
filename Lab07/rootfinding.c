@@ -11,27 +11,29 @@
 #include "ClassErrors.h"
 #include "rootfinding.h"
 
+#define BI_LIMIT 1000
 
 /******************************************************************************
- Purpose: Finds a root of scalar, nonlinear function f using the bisection  
+ Purpose: Finds a root of scalar, nonlinear function f using the bisection
  method. a and b make up the initial bracket to start bisecting from.
- 
+
  Where: func1arg f  - function whose root is to be determined
                       must take a single argument of type double and return
         double a    - initial root bracket guess
         double b    - initial root bracket guess
         double atol - absolute error termination tolerance,
         int verb    - verbose flag, 1 = TRUE, 0 = FALSE
-        
+
 Returns: double - the root refined to the desired tolerance or NAN
-Errors:  prints a message and returns with NAN                    
+Errors:  prints a message and returns with NAN
 ******************************************************************************/
 double bisection(func1arg f, double a, double b, double atol, int verb)
 {
+
     double c; /* midpoint */
     double fc; /* the value at the midpoint */
     int i=0; /* iterator */
-    
+
     if ((fabs(a-b) < atol) ||  SIGN(f(a))==SIGN(f(b))){
         fprintf(stdout, "A and B do not center a root\n");
         return(NAN);
@@ -43,26 +45,26 @@ double bisection(func1arg f, double a, double b, double atol, int verb)
         /* Calculate the mid point, evaluate it */
         c = (a+b)/2.0;
         fc = f(c);
-        
+
         /* Did we find a root? - check the function */
          // not working if ((fabs(fc) <= atol) || ((fabs(a-b)/2.0) <= atol)) 
         if (fabs(fc) <= atol)
         {
             return c;
         }
-        
+
         /* Did we find a root? - check the range */
-        if (fabs(a-b)/2.0 <= atol) 
+        if (fabs(a-b)/2.0 <= atol)
         {
            return(c);
         }
-        
+
         if(verb)
         {
             fprintf(stdout, "iter:%d	a:%f	b:%f	x:%f	err:%f\n",
                     i, a, b, c, fabs(b-c));
         }
-        
+
         /* Pick the next bracket */
         if (SIGN(f(a))==SIGN(fc))
         {
@@ -80,9 +82,9 @@ double bisection(func1arg f, double a, double b, double atol, int verb)
 
 
 /******************************************************************************
- Purpose: Finds a root of function f using the newton method. x0 is the initial 
- guess,  df is the derivative of function f , Nmax is the maximum number
-  of iterations, atol is the tolerance, and verb will turn a verbose print* out
+ Purpose: Finds a root of function f using the newton method. x0 is the initial
+ guess, df is the derivative of function f , Nmax is the maximum number
+ of iterations, atol is the tolerance, and verb will turn a verbose print* out
 
   Where: func1arg f  - function whose root is to be determined
                        must take single argument of type double and return
@@ -96,11 +98,11 @@ double bisection(func1arg f, double a, double b, double atol, int verb)
          int verb    - verbose flag, 1 = TRUE, 0 = FALSE
 
 Returns: double - the root refined to the desired tolerance or NAN
-Errors:  prints a message and returns with NAN      
+Errors:  prints a message and returns with NAN
 ******************************************************************************/
 double newton(func1arg f, func1arg df, double x0, int Nmax, double atol, int verb)
 {
-   double fx0;		/* Value of f(x0) */
+    double fx0;		/* Value of f(x0) */
     double dx0;		/* Derivative of f(x0) */
     double x1;		/* New x0 value */
     int i=0;		/* Iteration */
@@ -121,14 +123,14 @@ double newton(func1arg f, func1arg df, double x0, int Nmax, double atol, int ver
             fprintf(stdout, "Newton could NOT converge on a root.\n");
 			return(NAN);
         }
-        
+
         /* Calculate the updated point */
         x1 = x0 - fx0/dx0;
         if(fabs(x1-x0) < atol)  /* was if(fabs(x1-x0)/fabs(x1) < atol) which I think is wrong */
         {
             return x1;
         }
-        
+
         if(verb)
         {
             fprintf(stdout, "iter:%d	x0:%f	x1:%f	err:%f\n",
@@ -156,9 +158,49 @@ double newton(func1arg f, func1arg df, double x0, int Nmax, double atol, int ver
          int verb    - verbose flag, 1 = TRUE, 0 = FALSE
 
 Returns: double - the root refined to the desired tolerance or NAN
-Errors:  prints a message and returns with NAN        
+Errors:  prints a message and returns with NAN
 ******************************************************************************/
 double secant(func1arg f, double x0, double x1, int Nmax, double atol, int verb)
 {
 
+  double fx0, fx1;	/* Value of f(x0/x1/xp) and xp, the previous term */
+  double x2 = 0.0;
+  int i=0;			/* Iteration */
+
+    if(fabs(f(x0)) < atol){
+        return x0;
+    }
+
+    while(i < Nmax)
+    {
+        /* Evaluate the function at the initial point */
+        fx0 = f(x0);
+        fx1 = f(x1);
+
+        /* Calculate the updated point */
+        x2 = x0 - (fx0 * ((x1 - x0)/(fx1 - fx0)));
+        if(fabs(x2-x0) < atol)
+        {
+            return x2;
+        }
+
+        if(verb)
+        {
+            fprintf(stdout, "iter:%d	x0:%f	x1:%f	err:%f\n",
+                    i, x0, x1, fabs(x2 - x0));
+        }
+
+	x1 = x0;
+        x0 = x2;
+        i++;
+    }
+    fprintf(stdout, "Secant could not find a root with %d iterations\n", Nmax);
+    return(NAN);
+
+}
+
+double sec(double x){
+	double result;
+	result = 1.0/(cos(x));
+	return result;
 }
