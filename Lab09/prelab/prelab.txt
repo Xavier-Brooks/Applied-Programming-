@@ -1,0 +1,11 @@
+#define SIGN_MASK        0x80000000      
+#define SIGN_SHIFT       31
+#define EXPONENT_MASK    0x7F000000 
+#define EXPONENT_SHIFT   23
+#define EXPONENT_BIAS    0x7F 
+#define SIGNIFICAND_MASK 0x007FFFFF   
+
+returning pointer to variable on the local stack is bad.
+upon return the memory location containing the data being 
+returned may be overwritten by local stack variable of other
+functions, memory allocations, etc. 

@@ -1,0 +1,46 @@
+Integers are 32 bits long
+epsilon(double) is: 2.22044604925031308085E-16
+The result of adding 10.0 and DBL_EPSILON is: 1.00E+00
+
+Conversion test
+
+2.
+	[00000000]
+	[00000000]
+converted 0.0 to Qn0 00000000 then back to float 0.0
+
+4.
+	[01100010]
+	[00001100]
+converted 12.25 to Qn3 01100010 then back to float 12.0
+
+6.
+	[01100000]
+	[00001100]
+converted 12.0625 to Qn3 11000000 then back to float 12.0
+
+6.
+	[11000001]
+	[00001100]
+converted 12.0625 to Qn4 11000001 then back to float 12.0
+
+Due to shifting the bits when converting between fixed-point
+and floating point some of the fractionl bits are lost during 
+the conversion process, as a result the when converting from 
+floating point to fixed nd back, the returned value may not 
+be what was started with.
+
+Adding two fixed point numbers can result in an overflow 
+resulting in the integer part of the result number 
+requiring (m+1) bits, where m is the number of integer bits.
+
+during multiplication and division its required to cast the
+fixed point variables to the next higher word size. once done
+the multiplication answer must be shifted right by n bits, where
+n is the number of fractional bits. For division the dividend must
+be shifted left by n bits before performing the calcultions.
+
+Apply two's comp[liment to convert fixed numbers to their negative
+value by flipping all the bits and adding 1 to it. 
+
+ 

@@ -1,0 +1,58 @@
+The purpose of this exercise was to understand how complex number 
+work in c99. as a result functions were written that found both 
+complex and real roots for 2nd order polynomials defined by the 
+coefficients users type in the command line. 
+
+In order to gain max performance from the program the Timing
+macros from earlier labs e=were used to time the root finding
+calculations, both per iteration and overall, using 100 
+iterations as the repeat number. 
+
+below you'll find the timing result at each possible 
+optimization level. 
+
+O0 output 
+Elapsed CPU Time (rootTimer) = 8e-06 sec.
+Elapsed CPU Time per Iteration (rootTimer, 100) =  8.00e-08 sec.
+Initialization process beginning
+The polynomial is fully initialized begin root...
+root of: 1.000000x^2 + 0.000000x + 1.000000 is:
+root 1: 0.000000 + 1.000000I
+root 2: -0.000000 + -1.000000I
+
+O1 output
+Elapsed CPU Time (rootTimer) = 8e-06 sec.
+Elapsed CPU Time per Iteration (rootTimer, 100) =  8.00e-08 sec.
+Initialization process beginning
+The polynomial is fully initialized begin root...
+root of: 1.000000x^2 + 0.000000x + 1.000000 is:
+root 1: 0.000000 + 1.000000I
+root 2: -0.000000 + -1.000000I
+
+O2 output
+Elapsed CPU Time (rootTimer) = 7e-06 sec.
+Elapsed CPU Time per Iteration (rootTimer, 100) =  7.00e-08 sec.
+Initialization process beginning
+The polynomial is fully initialized begin root...
+root of: 1.000000x^2 + 0.000000x + 1.000000 is:
+root 1: 0.000000 + 1.000000I
+root 2: -0.000000 + -1.000000I
+
+O3 output
+Elapsed CPU Time (rootTimer) = 1e-05 sec.
+Elapsed CPU Time per Iteration (rootTimer, 100) =  1.00e-07 sec.
+Initialization process beginning
+The polynomial is fully initialized begin root...
+root of: 1.000000x^2 + 0.000000x + 1.000000 is:
+root 1: 0.000000 + 1.000000I
+root 2: -0.000000 + -1.000000I
+
+As can be seen above optimization level 3 produces the 
+best performance output per itertion for the complex 
+root functions. This is what I expected and very much 
+lines up with the timing outputs of my previous lab 
+work where optimization 3 saw a significant decrease 
+in execution time. 
+
+
+ 

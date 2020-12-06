@@ -1,0 +1,29 @@
+Qn division 
+
+8. The qnum =s are just integer according to the computer
+   as a result you can just iteratively divide them by 
+   the integer 2. 
+   
+10. users must use the fabs function in order to 
+    print the absolute vlue of the floats correctly
+    since the Qn numbers are just integers you can 
+    use the normal abs function.  
+
+Qn Multiply
+
+4. Data loss occurred when converting back to a float 
+   due to the right shifting of bits. thus some fraction
+   bits are lost. 
+
+Qn Complex equations 
+9. The resulting value for the float operation was -674.933,
+   -675 for the fractional calculation, and -674.932 for the
+   fixed point calculations. 
+
+
+Qn performance 
+7. The fixed point operations were much faster at addition and
+   multiplication than the floating point operations as they should
+   be however at the ost of precicsion. 
+
+

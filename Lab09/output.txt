@@ -1,0 +1,17 @@
+running test 1
+num1 is 0.000000, num2 is 0.000000, num3 is 1.000000
+The polynomial is fully initialized begin root...
+There is no solution a is 0
+
+running test 2
+num1 is 1.000000, num2 is 0.000000, num3 is nan
+Missing one or more arguments try again
+
+running test3
+Elapsed CPU Time (rootTimer) = 7e-06 sec.
+Elapsed CPU Time per Iteration (rootTimer, 100) =  7.00e-08 sec.
+num1 is 1.000000, num2 is 0.000000, num3 is 1.000000
+The polynomial is fully initialized begin root...
+root of: 1.00x^2 + 0.00x + 1.00 is:
+root 1: 0.00 + 1.00I
+root 2: -0.00 + -1.00I

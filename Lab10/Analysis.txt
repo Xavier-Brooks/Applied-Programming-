@@ -1,0 +1,75 @@
+using the nisection method from a previous lab I found
+the root for the function to be .000101. The problem I'm 
+having could not be solved with the help of multiple TAs.
+for starters since the fixed format uses powers of two 
+for fraction and the root solution is a fraction 
+i solved the equation 2^x = .000101, what I found was
+that the value x turned out to be 13.24....., meaning
+the minimum nuber of bit was supposed to be 14 to hold
+the fractional answer properly. I changed the number 
+of fractional bits numerous times with 14, 12, 20, and 
+32 as sizes but no avail. 
+
+below you'll find the output of my code
+
+Found the root 0.000000 using Qn 20 bisection.
+Elapsed CPU Time (timer) = 2.6e-05 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  5.20e-08 sec.
+Found the root 0.000101 using float bisection.
+Elapsed CPU Time (timer) = 0.000256 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  5.12e-07 sec.
+Qn 20 error= 0.000001
+
+my main focus was trying to get my ibisection to work but 
+two entire days of debugging code that a TA stated was 
+virtually identical was alot, I gave up lol. 
+
+The lab asked to test for the optimization that 
+gave the best resulting speed which I threw below.
+Overall the optimization level 3 produced the 
+
+using the optimization level 0
+Found the root 0.000000 using Qn 20 bisection.
+Elapsed CPU Time (timer) = 2.7e-05 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  5.40e-08 sec.
+Found the root 0.000101 using float bisection.
+Elapsed CPU Time (timer) = 0.000212 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  4.24e-07 sec.
+Qn 20 error= 0.000001
+
+using optimization level 1
+Found the root 0.000000 using Qn 20 bisection.
+Elapsed CPU Time (timer) = 8e-06 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  1.60e-08 sec.
+Found the root 0.000101 using float bisection.
+Elapsed CPU Time (timer) = 0.000275 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  5.50e-07 sec.
+Qn 20 error= 0.000001
+
+using optimization level 2
+Found the root 0.000000 using Qn 20 bisection.
+Elapsed CPU Time (timer) = 7e-06 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  1.40e-08 sec.
+Found the root 0.000101 using float bisection.
+Elapsed CPU Time (timer) = 0.00025 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  5.00e-07 sec.
+Qn 20 error= 0.000001
+
+using optimization levvel 3
+Found the root 0.000000 using Qn 20 bisection.
+Elapsed CPU Time (timer) = 2e-06 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  4.00e-09 sec.
+Found the root 0.000101 using float bisection.
+Elapsed CPU Time (timer) = 0.000251 sec.
+Elapsed CPU Time per Iteration (timer, 500) =  5.02e-07 sec.
+Qn 20 error= 0.000001
+
+As can be seen above O3 ha sthe overall best performance 
+thus I used it in my makefile when building the intTest
+binary.
+
+lastly a simple make file was created that builds the 
+projects and test the program with timing enabled and 
+without timing enabled for memory leakage.
+
+ 
