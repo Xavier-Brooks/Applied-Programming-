@@ -1,0 +1,87 @@
+----------------------------------------------------------
+FILE I/O
+----------------------------------------------------------
+
+1. Below are the results of running binary a after compiling 
+lab_a.c The program crashed as expected since the scanf 
+function was only expecting a single character to parse, 
+bit however got a string when my named was typed. 
+
+Miles to Km Conversion (enter negative number to end)
+Input distance in miles: 
+1.000000 miles = 1.609000 km
+Input distance in miles: 
+1.000000 miles = 1.609000 km
+Input distance in miles: 
+0.000000 miles = 0.000000 km
+
+Below is the output after adding error handling for
+the scanf function. FOr some reason adding error handling
+crashes the program. 
+
+Miles to Km Conversion (enter negative number to end)
+Input distance in miles: 
+0.000000 miles = 0.000000 km
+Input distance in miles: 
+0.000000 miles = 0.000000 km
+Input distance in miles: 
+0.000000 miles = 0.000000 km
+Input distance in miles: error, nothings been parsed
+
+----------------------------------------------------------
+COMMAND LINE INPUTS
+----------------------------------------------------------
+below is output after compiling the lab_b source to 
+the b binary. The binary prints each of the command line 
+arguments in a program and the os environment variables.
+
+argument 0 is: ./b
+argument 1 is: hello
+argument 2 is: world
+env[0] is: 4
+env[1] is: D
+env[2] is: [
+env[3] is: p
+env[4] is: ž
+env[5] is: «
+env[6] is: Â
+env[7] is: Ò
+env[8] is: ß
+env[9] is: þ
+env[10] is: à
+env[11] is: 
+env[12] is: 
+env[13] is: 6
+env[14] is: @
+env[15] is: H
+env[16] is: P
+env[17] is: ‘
+env[18] is: Ì
+env[19] is: Ü
+env[20] is: â
+
+---------------------------------------------------------
+Qsort
+---------------------------------------------------------
+below is th oiutput fo rthe c binary afdter compiling 
+the lab_c source code. takes number n from the user on 
+the cmmand line and creates a randomized array of doubles 
+of size n then sorts the array printing it to terminal 
+
+./c
+Terminating program: Only one parameter required
+
+./c -1
+Terminating program: Requested elements amount is 2 minimum
+
+./c 6 
+     -49.9
+       2.1
+      26.5
+      30.2
+      39.7
+      49.2
+
+./c 1 2
+Terminating program: Only one parameter required
+

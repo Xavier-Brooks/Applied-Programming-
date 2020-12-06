@@ -1,0 +1,37 @@
+the realDevice binary produces values that introduce 
+errors in a system modeling a generic sensor. To
+remove these errors the hw11 binary was written that 
+implements the normal least squares solution using 
+the gsl C libraries which takes two parameters. the 
+order of the polynomial and the input data which is 
+in the input text file. The output of the hw11 binary 
+is the function of the proper data fitting polynomial.
+
+the verbose flag is optional to the user during debugging 
+to determine whether or not the intermediate matrices 
+during computation were correct(these are exremely big
+matrices).
+
+The corrections binary was written to take the error filled
+realDevices data output and pass it through the polynomial 
+function produced by hw11. The output is the real data 
+produced by the realdevice binary and the error from the ideal 
+values we desire from the sensor being emulated. error is 
+calculated by subtracting the ideal value from the real.
+
+The pase linux program places both the realdevice and 
+corrected data into the alldata text file in four seperate
+columns for the myplot binary to read more easily.
+
+The myplot uses the gnuplot functionality to plot the ideal, 
+real, and corrected sensor readings together on the same graph.
+
+a simple make file was created which handles compiling the code, 
+providing executable permissions to provided binaries, perform
+memory test on my hw11 bin using valgrind, and cleans the directory 
+of any potentiall edited input and output files. Also a help
+flag prints you option in case you forget. The plot flag in the make  
+file captures the real, ideal, and corrected data and prints graphs
+them inside a png image file. 
+  
+I think I did this right.

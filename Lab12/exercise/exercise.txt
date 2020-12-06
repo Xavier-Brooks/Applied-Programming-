@@ -1,0 +1,159 @@
+---------------------------------------------------------------
+Qsort
+---------------------------------------------------------------
+expanded upon the qsort program from prelab by enabling the 
+program to sort polar notation data by either magnitude of 
+angle first. 
+
+binary d, from compiling the lab_d source, sorts the polar
+data array by the magnitude followed by the angle IMMEDIATELY 
+after can add a printing loop just before the angle sort occurs 
+to see the difference
+
+./d
+Try Again! only one cmd argument necessary
+
+./d -1
+Try Again! 2 elements is the minimum
+
+./d 6
+      22.9      -31.6
+     -28.0      -12.0
+     -49.9        2.1
+      39.7       30.2
+      22.9       46.9
+      26.5       49.2
+
+./d 1 2 
+Try Again! only one cmd argument necessary
+
+---------------------------------------------------------------
+scanf()
+---------------------------------------------------------------
+this exercise helps with familiarization with the scanf function
+through modification of the lab_e source
+
+==546== Memcheck, a memory error detector
+==546== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==546== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==546== Command: ././e
+==546== 
+Enter string or 'q' to exit: 1234567 
+
+String '1234567' length=7
+Enter string or 'q' to exit:12345678
+ 
+String '12345678' length=8
+Enter string or 'q' to exit:123456789
+==546== Invalid write of size 1
+==546==    at 0x48C3092: __vfscanf_internal (vfscanf-internal.c:1185)
+==546==    by 0x48C02E1: __isoc99_scanf (isoc99_scanf.c:30)
+==546==    by 0x1092C1: main (lab_e.c:34)
+==546==  Address 0x4a4f049 is 0 bytes after a block of size 9 alloc'd
+==546==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==546==    by 0x109254: main (lab_e.c:18)
+==546== 
+==546== Invalid read of size 1
+==546==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==546==    by 0x1092CD: main (lab_e.c:36)
+==546==  Address 0x4a4f049 is 0 bytes after a block of size 9 alloc'd
+==546==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==546==    by 0x109254: main (lab_e.c:18)
+==546== 
+==546== Invalid read of size 1
+==546==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==546==    by 0x48D5E94: __vfprintf_internal (vfprintf-internal.c:1688)
+==546==    by 0x48BEEBE: printf (printf.c:33)
+==546==    by 0x1092E8: main (lab_e.c:36)
+==546==  Address 0x4a4f049 is 0 bytes after a block of size 9 alloc'd
+==546==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==546==    by 0x109254: main (lab_e.c:18)
+==546== 
+The parsing string '%s'
+ 
+String '123456789' length=9
+Enter string or 'q' to exit: q
+
+String 'q' length=1
+==546== 
+==546== HEAP SUMMARY:
+==546==     in use at exit: 0 bytes in 0 blocks
+==546==   total heap usage: 3 allocs, 3 frees, 5,129 bytes allocated
+==546== 
+==546== All heap blocks were freed -- no leaks are possible
+==546== 
+==546== For lists of detected and suppressed errors, rerun with: -s
+==546== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+
+3. The use of MAX_STRING+1 is to take ain account for the nulll byte at the end of strings
+   the output of each step was the string printed however due to the third string being to 
+   long an error was returned by the main function as shown in the valgrind output.
+
+ 
+==739== Memcheck, a memory error detector
+==739== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==739== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==739== Command: ././e
+==739== 
+==739== Invalid write of size 1
+==739==    at 0x48C3092: __vfscanf_internal (vfscanf-internal.c:1185)
+==739==    by 0x48C02E1: __isoc99_scanf (isoc99_scanf.c:30)
+==739==    by 0x1092C1: main (lab_e.c:34)
+==739==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==739==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x109254: main (lab_e.c:18)
+==739== 
+==739== Invalid read of size 1
+==739==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x1092CD: main (lab_e.c:36)
+==739==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==739==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x109254: main (lab_e.c:18)
+==739== 
+==739== Invalid read of size 1
+==739==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x48D5E94: __vfprintf_internal (vfprintf-internal.c:1688)
+==739==    by 0x48BEEBE: printf (printf.c:33)
+==739==    by 0x1092E8: main (lab_e.c:36)
+==739==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==739==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x109254: main (lab_e.c:18)
+==739== 
+==739== Invalid write of size 1
+==739==    at 0x48C23D1: __vfscanf_internal (vfscanf-internal.c:1100)
+==739==    by 0x48C02E1: __isoc99_scanf (isoc99_scanf.c:30)
+==739==    by 0x1092C1: main (lab_e.c:34)
+==739==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==739==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x109254: main (lab_e.c:18)
+==739== 
+==739== Invalid read of size 1
+==739==    at 0x48436A0: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x48EC7B1: _IO_new_file_xsputn (fileops.c:1236)
+==739==    by 0x48EC7B1: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==739==    by 0x48D427B: __vfprintf_internal (vfprintf-internal.c:1688)
+==739==    by 0x48BEEBE: printf (printf.c:33)
+==739==    by 0x1092E8: main (lab_e.c:36)
+==739==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==739==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==739==    by 0x109254: main (lab_e.c:18)
+==739== 
+The parsing string '%s'
+
+Enter string or 'q' to exit: 
+String '1234567' length=7
+Enter string or 'q' to exit: 
+String '12345678' length=8
+Enter string or 'q' to exit: 
+String '123456789' length=9
+Enter string or 'q' to exit: 
+String 'q' length=1
+==739== 
+==739== HEAP SUMMARY:
+==739==     in use at exit: 0 bytes in 0 blocks
+==739==   total heap usage: 3 allocs, 3 frees, 5,128 bytes allocated
+==739== 
+==739== All heap blocks were freed -- no leaks are possible
+==739== 
+==739== For lists of detected and suppressed errors, rerun with: -s
+==739== ERROR SUMMARY: 10 errors from 5 contexts (suppressed: 0 from 0)
