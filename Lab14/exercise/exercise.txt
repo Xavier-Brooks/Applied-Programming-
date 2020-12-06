@@ -1,0 +1,12 @@
+Advanced examples
+1.the bash script gives the option to open the nano text editor, compile a c file with gcc, list teh files in the 
+  current directory, and exit. otherwise it will print help messages or quit if 4 is pressed. 
+
+2. the bash script uses an infinite loop to continously give the user the options from part one until 4 is 
+   pressed to exit
+
+3. counts the total number of lines in all files in the current working directory 
+
+4. uses file pointers to iterate through each file and count the lnies 
+
+
